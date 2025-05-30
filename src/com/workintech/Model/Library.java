@@ -5,9 +5,9 @@ import com.workintech.Services.BookServices;
 
 import java.util.*;
 
-public class Library implements BookServices { //BookServices interface'i implement edildi
+public class Library implements BookServices { //<-"Interface implementation"
 
-    private Set<String> borrowedBooks; // Odunc alinan kitaplarin ID'leri (Ayni kitap ID'si tekrar edemez!)
+    private Set<String> borrowedBooks; // Odunc alinan kitaplarin ID'leri (Benzersiz Kitap ID'si. Ayni kitap ID'si tekrar edemez!)
     private Map<String, Book> bookList; //Tum kitaplar (ID ile hizli kitap search islemi);
     private double balance; //Kutuphane total bakiye
 
@@ -31,6 +31,7 @@ public class Library implements BookServices { //BookServices interface'i implem
 
 //borrowBook() - Kitap Ödünç Alma;
 
+    // <- "Implementation Override Methodlar"
     public boolean borrowBook(User user, String id) {
         if (user != null && user.isLoggedIn()) { //Kullanici var mi, giris yapmis mi?
             Book book = getBookById(id); //Id ile kitabi bul

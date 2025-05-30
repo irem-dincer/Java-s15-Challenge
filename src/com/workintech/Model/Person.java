@@ -4,17 +4,18 @@ import java.util.Objects;
 
 // Bu sınıf abstract --> doğrudan new Person() ile nesne oluşturamam.
 // Yalnızca inheritance amacıyla kullanıcam;  User ve Librarian sınıfları bu sınıftan türeyecek.
-public abstract  class Person {
 
-    private String name;
+public abstract  class Person {  //<-"Abstract"
+
+
+    private String name;                      // <-"Ortak Fields"
     private int age;
     private int reader_id;
-
     private String phoneNumber;
     private String address;
     private  String email;
 
-    public Person(String name, int age, int reader_id, String phoneNumber,String address,String email){ //Tum alanlari parametre olarak aldim.
+    public Person(String name, int age, int reader_id, String phoneNumber,String address,String email){     // <-Tum alanlari parametre olarak aldim.
         this.name=name;
         this.age=age;
         this.reader_id=reader_id;

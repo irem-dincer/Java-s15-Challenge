@@ -5,10 +5,10 @@ import com.workintech.Enum.BookCategories;
 import java.util.Objects;
 
 public class Book {
-    private String name; //Kitabin adi
+    private String name; //Kitabin adi           // <- "Private Fields"
     private  String id; //Kitabin kimlik numarasi
-    private Author author; //Kitabin yazari (Author class'indan)
-    private boolean isBorrowed; //Kitap suan odunc alinmis mi
+    private Author author; //Kitabin yazari (Author class'indan)   // <- "Composition relationship"
+    private boolean isBorrowed; //Kitap suan odunc alinmis mi       // <-  "State management icin"
     private BookCategories bookCategories; //Kitabin kategorisi (Enum'dan gelir)
 
 public Book(String name, String id, Author author, boolean isBorrowed, BookCategories bookCategories){
@@ -18,6 +18,8 @@ public Book(String name, String id, Author author, boolean isBorrowed, BookCateg
     this.isBorrowed=isBorrowed;
     this.bookCategories=bookCategories;
 }
+
+// "Getter&Setter Methodlari"
 
     public void setName(String name) {
         this.name = name;

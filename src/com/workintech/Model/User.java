@@ -3,20 +3,22 @@ package com.workintech.Model;
 import java.util.List;
 import java.util.Objects;
 
-public class User extends  Person{
+public class User extends  Person{    // <-"Inheritance iliskisi"
 
-    //User'a ozel field atamalari;
-    private int borrowedBooksLimit; // Kac kitap ödünç alabilir (max 5)
+
+    private int borrowedBooksLimit; // Kac kitap ödünç alabilir (max 5)     // <-"User'a ozel field atamalari"
     private List<Book> borrowedBooks;  // Su an odunc aldığı kitaplar
     private double balance; // Hesap bakiyesi (ceza vs.)
     private boolean isLoggedIn=false; // Giris yapmıs mi?
 
-    public User(String name, int age, int reader_id, String phoneNumber, String address, String email, int borrowedBooksLimit, List<Book> borrowedBooks, double balance,boolean isLoggedIn){
-        super( name,  age,  reader_id,  phoneNumber,  address,  email);
+    public User(String name, int age, int reader_id, String phoneNumber, String address, String email, int borrowedBooksLimit, List<Book> borrowedBooks, double balance){
+
+        // <- "Super() çağrısı ile parent class'ın constructor'ını çağırıp, ortak özellikleri initialize ediyorum."
+    super( name,  age,  reader_id,  phoneNumber,  address,  email);     // <- "Parent Constructor"
         this.borrowedBooksLimit=borrowedBooksLimit;
-        this.borrowedBooks=borrowedBooks;
-        this.balance=balance;
-        this.isLoggedIn=isLoggedIn;
+        this.borrowedBooks=borrowedBooks;                            // <- "Child'a ozel atamalar"
+        this.balance=0.0;
+
 
     }
     //Kullanici girisi yapmak icin  authenticate methodu, Kullanici ismi ve id'si kontrol ediliyor.
@@ -70,6 +72,7 @@ public class User extends  Person{
 
     public void returnBook(Book book){
         //Once kullanicinin bu kitabi alip almadigi kontrol edilir.
+
         if(borrowedBooks.contains(book)){ //kitap, odunc alinanlar listesinde ise;
             borrowedBooks.remove(book); //Kitap odunc alinanlar listesinden cikarilir
             book.setBorrowed(false); //Kitap "odunc alinmamis" sekilde isaretlenir. (Books sinifinda tanimlanan setBorrowed(), composition)

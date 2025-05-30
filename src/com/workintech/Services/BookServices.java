@@ -14,7 +14,9 @@ import com.workintech.Model.User;
 import java.util.List;
 import java.util.Scanner;
 
-public interface BookServices {
+public interface BookServices {       // <- "Interface Abstraction"
+
+    // <- " Methodlar"
     void addBook(Librarian librarian); //access e librarian sahip
     void updateBook(String id, Scanner scanner);
     void removeBook(Librarian librarian); //access e librarian sahip
